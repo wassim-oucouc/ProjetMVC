@@ -1,0 +1,8 @@
+<?php
+
+
+$router = new Router();
+
+?>
+
+
