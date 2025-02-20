@@ -7,7 +7,7 @@ class UtilisateurController{
     private Utilisateur $Utilisateur;
 
     public function __construct(){
-        $this->Utilisateur;
+        $this->Utilisateur = new Utilisateur;
     }
 
     public function Create($Nom,$Email,$Password){
@@ -31,8 +31,5 @@ class UtilisateurController{
 
 
 }
-
-$C = new UtilisateurController;
-$C->Create($test,$test,$test);
 
 ?>

@@ -10,10 +10,17 @@ class Database
     public function connection()
 
 
+    private $username = 'root';
+    private $password = ;
+
+    public function connection()
+
+
+
     {
         try
         {
-            $conn = new PDO(static::$dsn,static::$username,static::$password);
+            $conn = new PDO($this->dsn,$this->username,$this->password);
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             return $conn;
         }
