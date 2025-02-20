@@ -7,14 +7,14 @@ class Database
 
 
 
-    private $username = 'root';
-    private $password = 'Jaafar@27';
+    private static $username = 'root';
+    private static $password = 'Jaafar@27';
 
     public static function connection()
     {
         try
         {
-            $conn = new PDO($this->dsn,$this->username,$this->password);
+            $conn = new PDO(static::$dsn,static::$username,static::$password);
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             return $conn;
         }

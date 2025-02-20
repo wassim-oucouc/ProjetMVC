@@ -1,2 +1,2 @@
 /vendor/
-/app/core/Database.php
+/app/core/db/Database.php
