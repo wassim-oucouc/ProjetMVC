@@ -9,13 +9,15 @@ class Utilisateur{
     private string $Email;
     private string $Password;
     private PDO $PDO;
-    private $co;
+    private $conn;
+
     /**
      * @param int $ID
      */
     public function __construct()
     {
-        $this-> PDO = new Database();
+        $this->conn =new Database ;
+
     }
 
 
@@ -61,9 +63,9 @@ class Utilisateur{
 
     public function Create($Nom,$Email,$Password){
         try{
-        $query = ' INSERT INTO Utilisateurs (NOM,Email,Password) VALUES ('.$Nom.','.$Email.','.$Password.'); ';
+        $query = ' INSERT INTO Utilisateurs (NOM,Email,Password) VALUES (' . $Nom . ',' . $Email . ' , ' . $Password . '); ';
         
-        $stmt = Database::connection() -> prepare($query);
+        $stmt = $this->conn->connection() -> prepare($query);
         $stmt -> execute();
         }catch(PDOException $e){
             echo'Error'.$e;
@@ -73,7 +75,7 @@ class Utilisateur{
         public function getAll(){
             try{
             $query = ' SELECT ID,Nom,Email,Password FROM Utilisateurs  ';
-            $stmt = Database::connection() -> prepare($query);
+            $stmt = $this->conn->connection() -> prepare($query);
             $result = $stmt -> execute();
             return $result;
             }catch(PDOException $e){
@@ -87,7 +89,7 @@ class Utilisateur{
                 try
                 {
                     $query = "DELETE FROM utilisateurs WHERE ID = :ID";
-                    $conn = $this->connexion->connection()->prepare($query);
+                    $conn = $this->conn->connection()->prepare($query);
                     $conn->bindParam(':ID',$id);
                     $conn->execute();
 
@@ -103,7 +105,7 @@ class Utilisateur{
                 try
                 {
                     $query = "UPDATE utilisateurs SET Nom = :Nom, Email = :Email,Password = :Password WHERE ID = :ID";
-                    $conn = $this->connexion->connection()->prepare($query);
+                    $conn = $this->conn->connection()->prepare($query);
                     $conn->bindParam(':Nom',$Nom);
                     $conn->bindparam(':Email',$Email);
                     $conn->bindParam(':Password',$Password);
