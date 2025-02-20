@@ -61,8 +61,8 @@ class Utilisateur{
     public function Create($Nom,$Email,$Password){
         try{
         $query = ' INSERT INTO Utilisateurs (NOM,Email,Password) VALUES ('.$Nom.','.$Email.','.$Password.'); ';
-        $stmt = $this->PDO->connection();
-        $stmt -> prepare($query);
+        
+        $stmt = Database::connection() -> prepare($query);
         $stmt -> execute();
         }catch(PDOException $e){
             echo'Error'.$e;

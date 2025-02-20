@@ -4,13 +4,13 @@
 class Database
 {
     private $dsn = "mysql:host=localhost;dbname=projetmvc;charset=UTF8";
-class Connection
-{
+
+
 
     private $username = 'root';
-    private $password;
+    private $password = 'Jaafar@27';
 
-    public function connection()
+    public static function connection()
     {
         try
         {
