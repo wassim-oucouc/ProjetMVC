@@ -61,7 +61,7 @@ class Utilisateur{
 
     public function Create($Nom,$Email,$Password){
         try{
-        $query = ' INSERT INTO Utilisateurs (NOM,Email,Password) VALUES (' . $Nom . ',' . $Email . ' , ' . $Password . '); ';
+        $query = ' INSERT INTO Utilisateurs (NOM,Email,Password) VALUES (:Nom, :Email ,:Password ); ';
         
         $stmt = $this->conn->connection() -> prepare($query);
         $stmt -> execute();

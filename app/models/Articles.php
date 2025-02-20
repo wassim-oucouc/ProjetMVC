@@ -98,6 +98,26 @@ class Articles
             throw new exception($e->getMessage());
         }
     }
+    public function delete($id){
+        try{
+        $query = 'DELETE FROM Articles WHERE ID = :id ';
+        $stmt = $this->conn->connection() -> prepare($query);
+        $stmt -> execute();
+        echo'Article updated Succefully';
+        }catch(Exception $e){
+          echo'error:' .$e;
+        }
+    } 
+    public function Update($Titre,$date,$id){
+        try{
+            $query = 'UPDATE FROM Articles SET Titre = :Titre , Date_publication = :date , id_utiliisateur = :id  WHERE ID = :id ';
+            $stmt = $this->conn->connection() -> prepare($query);
+            $stmt -> execute();
+            echo'Article updated Succefully';
+            }catch(Exception $e){
+              echo'error:' .$e;
+            }
+    }
 
     
 }
