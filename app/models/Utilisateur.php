@@ -9,6 +9,7 @@ class Utilisateur{
     private string $Email;
     private string $Password;
     private PDO $PDO;
+    private $co;
     /**
      * @param int $ID
      */
