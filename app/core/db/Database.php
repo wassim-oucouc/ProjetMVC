@@ -1,8 +1,12 @@
 <?php
 
+
+class Database
+{
+    private $dsn = "mysql:host=localhost;dbname=projetmvc;charset=UTF8";
 class Connection
 {
-    private $dsn = "mysql:host=localhost;dbname=youdemy;charset=UTF8";
+
     private $username = 'root';
     private $password;
 
@@ -23,4 +27,6 @@ class Connection
 
 
 
+
 ?>
+
