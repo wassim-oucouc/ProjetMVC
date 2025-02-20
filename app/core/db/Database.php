@@ -1,16 +1,15 @@
 <?php
 
-
 class Database
 {
     private $dsn = "mysql:host=localhost;dbname=projetmvc;charset=UTF8";
+    private $username = 'root';
+    private $password = "";
 
 
+    public function connection()
 
-    private static $username = 'root';
-    private static $password = 'Jaafar@27';
 
-    public static function connection()
     {
         try
         {
@@ -24,7 +23,6 @@ class Database
         }
     }
 }
-
 
 
 
