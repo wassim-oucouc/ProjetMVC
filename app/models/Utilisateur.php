@@ -67,8 +67,19 @@ class Utilisateur{
         }catch(PDOException $e){
             echo'Error'.$e;
         }
-}
+    }
 
+        public function getAll(){
+            try{
+            $query = ' SELECT ID,Nom,Email,Password FROM Utilisateurs  ';
+            $stmt = Database::connection() -> prepare($query);
+            $result = $stmt -> execute();
+            return $result;
+            }catch(PDOException $e){
+                echo'Error'.$e;
+            }
+        
+}
 }
 
 ?>
