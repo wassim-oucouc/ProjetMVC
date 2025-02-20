@@ -12,6 +12,8 @@ class Articles
     private utilisateur $utilisateur;
     private $connexion;
 
+    private $conn;
+
 
     public function __construct()
     {
