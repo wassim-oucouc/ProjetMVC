@@ -79,8 +79,43 @@ class Utilisateur{
                 echo'Error'.$e;
                 return new Utilisateur;
             }
+        }
+
+            public function DeleteUserById($id)
+            {
+                try
+                {
+                    $query = "DELETE FROM utilisateurs WHERE ID = :ID";
+                    $conn = $this->connexion->connection()->prepare($query);
+                    $conn->bindParam(':ID',$id);
+                    $conn->execute();
+
+                }
+                 catch(PDOException $e)
+                 {
+                    throw new Exception($e->etMessage());
+                 }
+            }
+
+            public function UpdateUserById($id,$Nom,$Email,$Password)
+            {
+                try
+                {
+                    $query = "UPDATE utilisateurs SET Nom = :Nom, Email = :Email,Password = :Password WHERE ID = :ID";
+                    $conn = $this->connexion->connection()->prepare($query);
+                    $conn->bindParam(':Nom',$Nom);
+                    $conn->bindparam(':Email',$Email);
+                    $conn->bindParam(':Password',$Password);
+                    $conn->bindParam(':ID',$id);
+                    $conn->execute();
+                }
+                catch(PDOException $e)
+                {
+                    throw new Exception($e->etMessage());
+                }
+            }
         
-}
+
 }
 
 ?>
