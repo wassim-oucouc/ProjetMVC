@@ -1,6 +1,6 @@
 <?php
 
-include('../core/db/Database.php');
+include('.././app/core/db/Database.php');
 
 class Utilisateur{
 
@@ -77,6 +77,7 @@ class Utilisateur{
             return $result;
             }catch(PDOException $e){
                 echo'Error'.$e;
+                return new Utilisateur;
             }
         
 }

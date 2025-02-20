@@ -1,9 +1,5 @@
 <?php
 
-namespace app\core;
-require_once('../vendor/autoload.php');
-use app\controllers\authController;
-use app\controllers\FreelancerController;
 
 class Router
 {
