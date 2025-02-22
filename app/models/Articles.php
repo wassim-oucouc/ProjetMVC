@@ -12,8 +12,6 @@ class Articles
     private utilisateur $utilisateur;
     private $connexion;
 
-    private $conn;
-
 
     public function __construct()
     {
@@ -92,6 +90,7 @@ class Articles
         $query = "SELECT * FROM articles";
         $conn = $this->connexion->connection()->prepare($query);
         $conn->execute();
+        return $conn->fetchAll(PDO:: FETCH_OBJECT);
         }
         catch(PDOException $e)
         {

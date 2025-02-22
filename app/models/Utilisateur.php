@@ -74,10 +74,10 @@ class Utilisateur{
 
         public function getAll(){
             try{
-            $query = ' SELECT ID,Nom,Email,Password FROM Utilisateurs  ';
+            $query = ' SELECT ID,Nom,Email,Password FROM Utilisateurs ';
             $stmt = $this->conn->connection() -> prepare($query);
-            $result = $stmt -> execute();
-            return $result;
+            $stmt->execute();
+            return $stmt->fetchAll(PDO:: FETCH_OBJECT);
             }catch(PDOException $e){
                 echo'Error'.$e;
                 return new Utilisateur;
